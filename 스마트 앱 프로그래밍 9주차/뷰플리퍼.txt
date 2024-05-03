@@ -1,0 +1,24 @@
+package com.example.week09_1
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.example.week09_1.databinding.ActivityMainBinding
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        var binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.ViewFlipper1.flipInterval = 1000
+
+        binding.btn1.setOnClickListener {
+            //binding.ViewFlipper1.showPrevious() 버튼 눌렀을 때 전 레이아웃
+            binding.ViewFlipper1.startFlipping()
+        }
+        binding.btn2.setOnClickListener {
+            //binding.ViewFlipper1.showNext() 버튼 눌렀을 때 다음 레이아웃
+            binding.ViewFlipper1.stopFlipping()
+        }
+    }
+}

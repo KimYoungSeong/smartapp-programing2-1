@@ -1,0 +1,28 @@
+package com.example.week09_1
+
+import android.app.TabActivity
+import android.os.Bundle
+import com.example.week09_1.databinding.ActivityMainBinding
+
+@Suppress("deprecation")
+class MainActivity : TabActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        var binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        var tabHost = this.tabHost
+
+        var tabSpecSong = tabHost.newTabSpec("Song").setIndicator("음악별")
+        tabSpecSong.setContent(R.id.tabSong)
+        tabHost.addTab(tabSpecSong)
+        var tabSpecArtist = tabHost.newTabSpec("Artist").setIndicator("가수별")
+        tabSpecArtist.setContent(R.id.tabArtist)
+        tabHost.addTab(tabSpecArtist)
+        var tabSpecAlbum = tabHost.newTabSpec("Album").setIndicator("앨범별")
+        tabSpecAlbum.setContent(R.id.tabAlbum)
+        tabHost.addTab(tabSpecAlbum)
+
+        tabHost.currentTab = 0
+    }
+}
